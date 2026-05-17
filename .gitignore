@@ -1,0 +1,15 @@
+Set-Content -Path ".gitignore" -Value @"
+# Java
+target/
+*.jar
+.mvn/
+
+# Go
+go-sms-store.exe
+main.exe
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+"@
