@@ -43,20 +43,28 @@ Service runs on port `8081`.
 ### 1. Send SMS (Java)
 **Endpoint**: `POST http://localhost:8080/v1/sms/send`
 
-**Payload**:
-```json
-{
-  "userId": "user123",
-  "phoneNumber": "+1234567890",
-  "message": "Hello from Polyglot Architecture!"
-}
+**Example (PowerShell)**:
+```powershell
+Invoke-RestMethod -Uri "http://localhost:8080/v1/sms/send" -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"userId":"user123","phoneNumber":"+1234567890","message":"Hello from Polyglot Architecture!"}'
+```
+
+**Example (cURL)**:
+```bash
+curl -X POST http://localhost:8080/v1/sms/send -H "Content-Type: application/json" -d "{\"userId\":\"user123\",\"phoneNumber\":\"+1234567890\",\"message\":\"Hello from Polyglot Architecture!\"}"
 ```
 
 ### 2. Get SMS History (GoLang)
-**Endpoint**: `GET http://localhost:8081/v1/user/{User_id}/messages`
+**Endpoint**: `GET http://localhost:8081/v1/user/{userId}/messages`
 
-**Example**:
-`curl http://localhost:8081/v1/user/user123/messages`
+**Example (PowerShell)**:
+```powershell
+Invoke-RestMethod -Uri "http://localhost:8081/v1/user/user123/messages" -Method Get
+```
+
+**Example (cURL)**:
+```bash
+curl http://localhost:8081/v1/user/user123/messages
+```
 
 ## Demonstration Flow
 1. Start infrastructure and both services.
